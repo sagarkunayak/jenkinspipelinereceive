@@ -16,10 +16,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                for(jobname in ['PipelineSend']){
-                    jobStatus = getJobStatus(jobName)
-                    echo jobStatus
-                }
+               
+                jobStatus = getJobStatus('PipelineSend')
+                echo jobStatus
+                
                 echo 'Building'
             }
         }
