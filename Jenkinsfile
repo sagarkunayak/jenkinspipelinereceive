@@ -15,9 +15,12 @@ pipeline {
             }
         }
         stage('Build') {
-                jobStatus = getJobStatus()
+            jobStatus = getJobStatus()
+            steps {
+                echo 'start'
                 echo jobStatus
                 echo 'Building'
+            }
         }
         stage('Deploy') {
             steps {
