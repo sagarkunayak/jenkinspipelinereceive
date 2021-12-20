@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
-def getJobStatus(String jobName){
-    def request = httpRequest "https://http://localhost:8080//job/${jobname}/lastBuild/api/json"
+def getJobStatus(String){
+    def request = httpRequest "https://http://localhost:8080//job/PipelineSend/lastBuild/api/json"
     def requestJson = new JsonSlurper().parseText(request.getContent())
     return requestJson['result']
 }
@@ -16,10 +16,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-               
-                jobStatus = getJobStatus('PipelineSend')
+                jobStatus = getJobStatus()
                 echo jobStatus
-                
                 echo 'Building'
             }
         }
