@@ -8,7 +8,7 @@ def getJobStatus(String jobName){
 node() {
     def any_success = false
     stage('check'){
-        for(jobname in ['PipelineSend']){
+        for(jobName in ['PipelineSend']){
             jobStatus = getJobStatus(jobName)
             echo jobStatus
             if(jobStatus == "SUCCESS" || jobStatus == "UNSTABLE"){
