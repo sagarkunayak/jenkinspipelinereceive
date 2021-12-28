@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage("Using curl example") {
+            steps {
+                script {
+                    def build_job = build job: "PipelineSend"
+                    result = build_job.getResult()
+                    echo result
+                    
+                }
+            }
+        }
+    }
+}
